@@ -24,6 +24,10 @@ class Account implements acount{
         this._pass = value.pass;
     }
 
+    private connect(resp:{token:string, auth:boolean}):string{
+        return resp.auth ? 'Conectado':'Erro ao conectar'
+    }
+
     login(): string { // ABSTRAÇÃO - utiliza um método privado.
         let conn:{token:string, auth:boolean};
         if(this._pass == '123'){
@@ -46,10 +50,6 @@ class Account implements acount{
         setTimeout(() => {
             console.log('Até mais!');
         }, 3000);
-    }
-
-    private connect(resp:{token:string, auth:boolean}):string{
-        return resp.auth ? 'Conectado':'Erro ao conectar'
     }
 }
 
